@@ -11,5 +11,22 @@ public class sqtConstant {
     public static final String key = "KEY";
     public static final String not = "NOT";
     public static final String nul = "NULL";
+    public static final String notnull = not + space + nul;
 
+    public static final String create = "CREATE";
+    public static final String table = "TABLE";
+
+    public static final String openBracket = "{";
+    public static final String closeBracket = "}";
+
+    public static final String newLine = "\n";
+
+    public static final String name = "name";
+    public static final String type = "type";
+    public static final String datetime = "datetime";
+    public static final String date = "date";
+    public static final String textarea = "textarea";
+    public static final String image = "image";
+
+    public static final String title = "title";
 }

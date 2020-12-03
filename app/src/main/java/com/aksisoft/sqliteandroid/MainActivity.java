@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d(TAG, sqtString.tblID());
+        Log.d(TAG, sqtString.create("namatable", new String[]{
+                "tbl1", "tbl2", "tbl3"
+        }));
     }
 }
