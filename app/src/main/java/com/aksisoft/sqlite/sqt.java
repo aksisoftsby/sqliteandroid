@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 public class sqt extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "databaseapp.sql";
-    private static final Integer DB_VERSION = 1;
+    private static final Integer DB_VERSION = 2;
 
     public sqt(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);

@@ -21,7 +21,10 @@ public class sqtString {
 
     public static final String text(String s){
         return TextUtils.join(sqtConstant.space, new String[] {
-                s, sqtConstant.text, sqtConstant.notnull
+                s,
+                sqtConstant.text,
+                // sqtConstant.notnull
+                sqtConstant.nul
         });
     }
 
