@@ -6,6 +6,9 @@ import com.aksisoft.sqlite.helper.sqtString;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class dbinfo {
 
     // database informasi
@@ -27,10 +30,22 @@ public class dbinfo {
             User_name, User_username, User_description, User_image1
     };
 
+    public static final Map<String, String> TITLE =
+            new HashMap<String, String>(){{
+
+    }};
     public static final String onCreate(){
         return TextUtils.join("\n", new String[]{
                 sqtString.create(tblFeed, Feed_projection),
                 sqtString.create(tblUser, User_projection)
         });
+    }
+    public static final String getTitle(String validation){
+        switch (validation){
+            case Feed_image1:
+                return "Image";
+        }
+        return validation.substring(0,1).toUpperCase()
+                + validation.substring(1);
     }
 }
