@@ -15,4 +15,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Add New Feed"
+        />
+
+    <Button
+        android:id="@+id/btnShow"
+        app:layout_constraintTop_toBottomOf="@id/btnTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show List Feed"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

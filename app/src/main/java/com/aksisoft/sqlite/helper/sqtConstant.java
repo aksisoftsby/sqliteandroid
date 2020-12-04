@@ -11,14 +11,21 @@ public class sqtConstant {
     public static final String key = "KEY";
     public static final String not = "NOT";
     public static final String nul = "NULL";
+    public static final String drop = "DROP";
+    public static final String iff = "IF";
+    public static final String exist = "EXISTS";
     public static final String notnull = not + space + nul;
 
     public static final String create = "CREATE";
     public static final String table = "TABLE";
 
-    public static final String openBracket = "{";
-    public static final String closeBracket = "}";
+    // public static final String openBracket = "{";
+    // public static final String closeBracket = "}";
+    // SQLITE DONOT USE BRACKET!
+    public static final String openBracket = "(";
+    public static final String closeBracket = ")";
     public static final String dotComma = ";";
+    public static final String comma = ",";
 
     public static final String newLine = "\n";
 

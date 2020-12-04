@@ -1,12 +1,16 @@
 package com.aksisoft.sqlite.dbmeta;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
+import com.aksisoft.sqlite.helper.sqtConstant;
 import com.aksisoft.sqlite.helper.sqtString;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class dbinfo {
@@ -30,15 +34,30 @@ public class dbinfo {
             User_name, User_username, User_description, User_image1
     };
 
+    public static final Map<String, String[]> TBL = new HashMap<String, String[]>(){{
+        put(tblFeed, Feed_projection);
+        put(tblUser, User_projection);
+    }};
+
     public static final Map<String, String> TITLE =
             new HashMap<String, String>(){{
 
     }};
-    public static final String onCreate(){
-        return TextUtils.join("\n", new String[]{
-                sqtString.create(tblFeed, Feed_projection),
-                sqtString.create(tblUser, User_projection)
-        });
+    public static final void onCreate(SQLiteDatabase sq){
+        List<String> l = new ArrayList<String>();
+        for(Map.Entry<String, String[]> e : TBL.entrySet()){
+            // l.add(sqtString.create(e.getKey(), e.getValue()));
+            sq.execSQL(sqtString.create(e.getKey(), e.getValue()));
+        }
+        // return TextUtils.join(sqtConstant.space, l.toArray());
+    }
+    public static final void onDelete(SQLiteDatabase sq){
+        List<String> l = new ArrayList<String>();
+        for(Map.Entry<String, String[]> e : TBL.entrySet()){
+            // l.add(sqtString.delete(e.getKey()));
+            sq.execSQL(sqtString.delete(e.getKey()));
+        }
+        // return TextUtils.join(sqtConstant.space, l.toArray());
     }
     public static final String getTitle(String validation){
         switch (validation){

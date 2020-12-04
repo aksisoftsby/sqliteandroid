@@ -38,13 +38,27 @@ public class sqtString {
     public static final String create(String tbl, String[] s){
         List<String> l = new ArrayList<>();
         l.add(_create_first(tbl));
-        l.add(tblID());
+
+        List<String> ln = new ArrayList<String>();
+        ln.add(tblID());
         for(int i = 0; i < s.length; i++){
-            l.add(text(s[i]));
+            ln.add(text(s[i]));
         }
+        l.add(TextUtils.join(sqtConstant.comma + sqtConstant.space, ln.toArray()));
+
         l.add(sqtConstant.closeBracket);
-        l.add(sqtConstant.dotComma);
+        // l.add(sqtConstant.dotComma);
         return TextUtils.join(sqtConstant.newLine, l.toArray());
+    }
+
+    public static final String delete(String tbl){
+        return TextUtils.join(sqtConstant.space, new String[]{
+           sqtConstant.drop,
+           sqtConstant.table,
+           sqtConstant.iff,
+           sqtConstant.exist,
+           tbl
+        });
     }
 
 }
