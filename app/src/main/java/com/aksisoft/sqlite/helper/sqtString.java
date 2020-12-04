@@ -25,6 +25,15 @@ public class sqtString {
         });
     }
 
+    public static final String _create_first(String tbl){
+        return TextUtils.join(sqtConstant.space, new String[]{
+           sqtConstant.create,
+           sqtConstant.table,
+           tbl,
+           sqtConstant.openBracket
+        });
+    }
+
     // standard create
     public static final String create(String tbl, String[] s){
         List<String> l = new ArrayList<>();
@@ -34,15 +43,8 @@ public class sqtString {
             l.add(text(s[i]));
         }
         l.add(sqtConstant.closeBracket);
+        l.add(sqtConstant.dotComma);
         return TextUtils.join(sqtConstant.newLine, l.toArray());
     }
 
-    public static final String _create_first(String tbl){
-        return TextUtils.join(sqtConstant.space, new String[]{
-           sqtConstant.create,
-           sqtConstant.table,
-           tbl,
-           sqtConstant.openBracket
-        });
-    }
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.aksisoft.sqlite.dbmeta.dbinfo;
 import com.aksisoft.sqlite.helper.sqtString;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d(TAG, sqtString.create("namatable", new String[]{
-                "tbl1", "tbl2", "tbl3"
-        }));
+        // Log.d(TAG, sqtString.create("namatable", new String[]{"tbl1", "tbl2", "tbl3"}));
+        // Log.d(TAG, dbinfo.getProjection(dbinfo.sFeed).toString());
+        Log.d(TAG, dbinfo.onCreate());
     }
 }

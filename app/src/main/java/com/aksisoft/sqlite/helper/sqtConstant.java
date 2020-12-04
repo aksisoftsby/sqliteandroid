@@ -18,6 +18,7 @@ public class sqtConstant {
 
     public static final String openBracket = "{";
     public static final String closeBracket = "}";
+    public static final String dotComma = ";";
 
     public static final String newLine = "\n";
 
