@@ -15,9 +15,17 @@ public class sqtConstant {
     public static final String iff = "IF";
     public static final String exist = "EXISTS";
     public static final String notnull = not + space + nul;
+    public static final String select = "SELECT";
+    public static final String star = "*";
+    public static final String from = "FROM";
+    public static final String where = "WHERE";
+    public static final String orderby = "ORDER BY";
 
     public static final String create = "CREATE";
     public static final String table = "TABLE";
+
+    public static final String desc = "DESC";
+    public static final String asc = "ASC";
 
     // public static final String openBracket = "{";
     // public static final String closeBracket = "}";
@@ -26,6 +34,8 @@ public class sqtConstant {
     public static final String closeBracket = ")";
     public static final String dotComma = ";";
     public static final String comma = ",";
+    public static final String koma = "=";
+    public static final String persenS = "'%s'";
 
     public static final String newLine = "\n";
 

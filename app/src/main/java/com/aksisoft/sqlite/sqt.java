@@ -19,12 +19,12 @@ public class sqt extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // db.execSQL(dbinfo.onCreate());
-        dbinfo.onCreate(db);
+        dbfunc.onCreate(db);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // db.execSQL(dbinfo.onDelete());
-        dbinfo.onDelete(db);
+        dbfunc.onDelete(db);
         onCreate(db);
     }
     @Override

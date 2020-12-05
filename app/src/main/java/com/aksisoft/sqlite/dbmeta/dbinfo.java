@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.aksisoft.sqlite.helper.sqtConstant;
 import com.aksisoft.sqlite.helper.sqtString;
 
+import org.json.JSONArray;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -41,24 +42,8 @@ public class dbinfo {
 
     public static final Map<String, String> TITLE =
             new HashMap<String, String>(){{
-
     }};
-    public static final void onCreate(SQLiteDatabase sq){
-        List<String> l = new ArrayList<String>();
-        for(Map.Entry<String, String[]> e : TBL.entrySet()){
-            // l.add(sqtString.create(e.getKey(), e.getValue()));
-            sq.execSQL(sqtString.create(e.getKey(), e.getValue()));
-        }
-        // return TextUtils.join(sqtConstant.space, l.toArray());
-    }
-    public static final void onDelete(SQLiteDatabase sq){
-        List<String> l = new ArrayList<String>();
-        for(Map.Entry<String, String[]> e : TBL.entrySet()){
-            // l.add(sqtString.delete(e.getKey()));
-            sq.execSQL(sqtString.delete(e.getKey()));
-        }
-        // return TextUtils.join(sqtConstant.space, l.toArray());
-    }
+
     public static final String getTitle(String validation){
         switch (validation){
             case Feed_image1:

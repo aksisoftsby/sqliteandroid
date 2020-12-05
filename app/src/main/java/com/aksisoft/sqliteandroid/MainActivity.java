@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.aksisoft.sqlite.dbfunc;
 import com.aksisoft.sqlite.dbmeta.dbinfo;
 import com.aksisoft.sqlite.helper.sqtString;
 import com.aksisoft.sqlite.sqt;
@@ -36,27 +37,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnshow.setOnClickListener(this);
         // Log.d(TAG, sqtString.create("namatable", new String[]{"tbl1", "tbl2", "tbl3"}));
         // Log.d(TAG, dbinfo.getProjection(dbinfo.sFeed).toString());
+
     }
 
     @Override
     public void onClick(final View vi) {
         if (btntop.equals(vi)) {
-            SQLiteDatabase s = sq.getWritableDatabase();
             ContentValues c = new ContentValues();
             c.put(dbinfo.Feed_title, new Date().toString());
-            s.insert(dbinfo.tblFeed, null, c);
-            s.close();
+            dbfunc._insert(sq, dbinfo.tblFeed, c);
         } else if (btnshow.equals(vi)) {
-            SQLiteDatabase s = sq.getReadableDatabase();
-            Cursor c = s.query(dbinfo.tblFeed, null,
-                    null, null, null, null, null);
-            List<String> tt = new ArrayList<String>();
-            while (c.moveToNext()){
-                tt.add(c.getString(c.getColumnIndex(dbinfo.Feed_title)));
-            }
-            c.close();
-            s.close();
-            Log.d(TAG, tt.toString());
+            List<Object> l = dbfunc.getAll(sq, dbinfo.tblFeed);
+            dbfunc._log(l);
         }
     }
 }

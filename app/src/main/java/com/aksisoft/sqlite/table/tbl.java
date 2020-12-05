@@ -1,11 +1,24 @@
 package com.aksisoft.sqlite.table;
 
+import android.text.TextUtils;
+
 import com.aksisoft.sqlite.helper.sqtConstant;
 import java.util.HashMap;
 import java.util.Map;
 
 public class tbl {
 
+    public static final String orderBy = TextUtils.join(sqtConstant.space, new String[]{
+            sqtConstant.orderby, sqtConstant.id, sqtConstant.desc
+    });
+    public static final String selectAll = TextUtils.join(sqtConstant.space, new String[]{
+            sqtConstant.select, sqtConstant.star, sqtConstant.from
+    });
+    public static final String fromEscape(String tb){
+        return TextUtils.join(sqtConstant.space, new String[]{
+                sqtConstant.where, tb, sqtConstant.koma, sqtConstant.persenS
+        });
+    } ;
     public static final Map<String, String> _createName(String name){
         return new HashMap<String, String>(){{
            put(sqtConstant.name, name);
@@ -29,7 +42,6 @@ public class tbl {
             put(sqtConstant.type, sqtConstant.image);
         }};
     }
-
 
     public static final Map<String, String> name = new HashMap<String, String>(){{
         put(sqtConstant.name, tblConstant.name);
@@ -55,5 +67,18 @@ public class tbl {
     public static final String getType(Map<String, String> o){
         if(o.get(sqtConstant.type) != null) return o.get(sqtConstant.type);
         else return sqtConstant.text;
+    }
+    public static final String rawSelect(String tbl){
+        return TextUtils.join(sqtConstant.space, new String[] {
+                sqtConstant.select, sqtConstant.star, sqtConstant.from,
+                tbl
+        });
+    }
+
+
+    public static final String rawSelectWhere(String tbl, String colName){
+        return TextUtils.join(sqtConstant.space, new String[]{
+           selectAll, tbl, fromEscape(colName), orderBy
+        });
     }
 }
